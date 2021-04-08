@@ -30,7 +30,7 @@
 #include "JSON.hpp"
 #include <string>
 
-#define _JSON_PFAD "sdmc:/3ds/StackTODOListe/AufgabenListe.json"
+#define _JSON_PFAD "sdmc:/3ds/StackTODOList/TaskList.json"
 
 /*
 	Aufgaben-Liste Struktur.
