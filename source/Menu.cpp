@@ -230,7 +230,7 @@ void Menu::UnterMenu(void) const {
 
 	/* Mitwirkende Ansehen. */
 	Gui::Draw_Rect(170, 50, 120, 70, BAR_FARBE);
-	Gui::DrawString(178, 60, 0.4f, TEXT_FARBE, "Constributors");
+	Gui::DrawString(178, 60, 0.4f, TEXT_FARBE, "Contributors");
 	Gui::DrawSprite(GFX::Sprites, sprites_credits_idx, 170 + 48, 85);
 
 	/* Aufgabenliste Leeren. */
