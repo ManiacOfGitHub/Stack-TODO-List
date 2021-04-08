@@ -54,12 +54,12 @@ void AufgabenListeCore::LadeListe(const std::string &Liste) {
 		AufgabenListe Aufgabe = { "", "", false };
 
 		Aufgabe.Titel = It.key();
-		if (this->AufgabenJSON[It.key()].contains("Beschreibung") && this->AufgabenJSON[It.key()]["Beschreibung"].is_string()) {
-			Aufgabe.Beschreibung = this->AufgabenJSON[It.key()]["Beschreibung"];
+		if (this->AufgabenJSON[It.key()].contains("Description") && this->AufgabenJSON[It.key()]["Description"].is_string()) {
+			Aufgabe.Beschreibung = this->AufgabenJSON[It.key()]["Description"];
 		}
 
-		if (this->AufgabenJSON[It.key()].contains("Erledigt") && this->AufgabenJSON[It.key()]["Erledigt"].is_boolean()) {
-			Aufgabe.Erledigt = this->AufgabenJSON[It.key()]["Erledigt"];
+		if (this->AufgabenJSON[It.key()].contains("Done") && this->AufgabenJSON[It.key()]["Done"].is_boolean()) {
+			Aufgabe.Erledigt = this->AufgabenJSON[It.key()]["Done"];
 		}
 
 		this->Aufgaben.push_back(Aufgabe); // Füge die Aufgabe zu den Aufgaben hinzu.
@@ -132,7 +132,7 @@ void AufgabenListeCore::Erledigt(const size_t Index, const bool IstErledigt) {
 	if (Index < this->AufgabenAnzahl() && this->ListeGut) {
 		this->Aufgaben[Index].Erledigt = IstErledigt;
 
-		if (!this->AufgabenJSON.is_discarded()) this->AufgabenJSON[this->Aufgaben[Index].Titel]["Erledigt"] = IstErledigt;
+		if (!this->AufgabenJSON.is_discarded()) this->AufgabenJSON[this->Aufgaben[Index].Titel]["Done"] = IstErledigt;
 	}
 };
 
@@ -157,7 +157,7 @@ void AufgabenListeCore::Addiere(const AufgabenListe &Aufgabe) {
 	if (this->ListeGut) {
 		this->Aufgaben.push_back(Aufgabe);
 
-		nlohmann::json Objekt = {{ "Beschreibung", Aufgabe.Beschreibung }, { "Erledigt", Aufgabe.Erledigt }};
+		nlohmann::json Objekt = {{ "Description", Aufgabe.Beschreibung }, { "Done", Aufgabe.Erledigt }};
 		this->AufgabenJSON.push_back({ Aufgabe.Titel, Objekt });
 	}
 };
