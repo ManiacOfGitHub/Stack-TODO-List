@@ -4,9 +4,9 @@ on: "workflow_dispatch"
 
 jobs:
   build:
-
+    container: universalteam/devkitarm
     runs-on: ubuntu-latest
-
+    name: Build .3dsx
     steps:
       - name: Checkout repo
         uses: actions/checkout@v1
