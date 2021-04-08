@@ -52,7 +52,7 @@ int main() {
 
 	/* Erstelle die Verzeichnisse, falls nicht vorhanden. */
 	mkdir("sdmc:/3ds", 0x777);
-	mkdir("sdmc:/3ds/StackTODOListe", 0x777);
+	mkdir("sdmc:/3ds/StackTODOList", 0x777);
 
 	/* Initialisiere die SpriteSheet. */
 	Gui::loadSheet("romfs:/gfx/sprites.t3x", GFX::Sprites);
