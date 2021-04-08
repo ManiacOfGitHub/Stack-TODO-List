@@ -31,7 +31,7 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-TARGET			:=	Stack-TODO-Liste
+TARGET			:=	Stack-TODO-List
 BUILD			:=	build
 UNIVCORE		:=	Universal-Core
 SOURCES			:=	$(UNIVCORE) source
@@ -39,7 +39,7 @@ DATA			:=	data
 INCLUDES		:=	$(UNIVCORE) include
 GRAPHICS		:=	assets/gfx
 APP_AUTHOR		:=	SuperSaiyajinStackZ
-APP_DESCRIPTION :=	Ein TODO-Listen Tool fuer den 3DS.
+APP_DESCRIPTION :=	A TODO-List Tool for the Nintendo 3DS.
 ICON			:=	app/icon.png
 ROMFS			:=	romfs
 GFXBUILD		:=	$(ROMFS)/gfx
