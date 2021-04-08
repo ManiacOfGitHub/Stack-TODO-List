@@ -30,7 +30,7 @@ jobs:
         id: build
         run: |
           make
-          mkdir -p ~/build
+          mkdir -p ~/artifacts
           cp Stack-TODO-List.3dsx ~/artifacts
           echo ::set-output name=commit_tag::$(git describe --abbrev=0 --tags)
           echo ::set-output name=commit_hash::$(git log --format=%h -1)
