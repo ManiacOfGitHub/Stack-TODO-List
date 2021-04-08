@@ -82,7 +82,7 @@ void Menu::Logic(u32 Down, u32 Held, touchPosition Touch) {
 void Menu::TODOListe(void) const {
 	GFX::DrawBasis(true);
 	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Stack-TODO-List");
-	Gui::DrawString(395, 1, 0.55f, TEXT_FARBE, "v1.0.0", 0, 0, nullptr, C2D_AlignRight);
+	Gui::DrawString(395, 1, 0.55f, TEXT_FARBE, "v1.0.0-E1", 0, 0, nullptr, C2D_AlignRight);
 
 	/* Zeichne die Top Aufgaben-Liste. */
 	if (this->Aufgaben->AufgabenAnzahl() > 0) {
