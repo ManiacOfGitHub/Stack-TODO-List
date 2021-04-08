@@ -81,7 +81,7 @@ void Menu::Logic(u32 Down, u32 Held, touchPosition Touch) {
 */
 void Menu::TODOListe(void) const {
 	GFX::DrawBasis(true);
-	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Stack-TODO-Liste");
+	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Stack-TODO-List");
 	Gui::DrawString(395, 1, 0.55f, TEXT_FARBE, "v1.0.0", 0, 0, nullptr, C2D_AlignRight);
 
 	/* Zeichne die Top Aufgaben-Liste. */
@@ -218,24 +218,24 @@ void Menu::ListMenuLogik(uint32_t Down, uint32_t Held, touchPosition Touch) {
 	void Menu::UnterMenuLogik(uint32_t Down, uint32_t Held, touchPosition Touch): Die Input Logik.
 */
 void Menu::UnterMenu(void) const {
-	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Unter-Menü"); // Menü Titel.
+	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Sub-Menu"); // Menü Titel.
 	if (this->Aufgaben->AufgabenAnzahl() > 0) {
 		Gui::DrawSprite(GFX::Sprites, (this->Menutyp == MenuTyp::Liste ? sprites_down_idx : sprites_up_idx), 2, 1); // Hoch / Runter Pfeil.
 	}
 
 	/* Aufgabe Hinzufügen. */
 	Gui::Draw_Rect(30, 50, 120, 70, BAR_FARBE);
-	Gui::DrawString(41, 60, 0.4f, TEXT_FARBE, "Aufgabe Hinzufügen");
+	Gui::DrawString(41, 60, 0.4f, TEXT_FARBE, "Add Task");
 	Gui::DrawSprite(GFX::Sprites, sprites_add_idx, 30 + 48, 85);
 
 	/* Mitwirkende Ansehen. */
 	Gui::Draw_Rect(170, 50, 120, 70, BAR_FARBE);
-	Gui::DrawString(178, 60, 0.4f, TEXT_FARBE, "Mitwirkende Ansehen");
+	Gui::DrawString(178, 60, 0.4f, TEXT_FARBE, "Constributors");
 	Gui::DrawSprite(GFX::Sprites, sprites_credits_idx, 170 + 48, 85);
 
 	/* Aufgabenliste Leeren. */
 	Gui::Draw_Rect(30, 140, 120, 70, BAR_FARBE);
-	Gui::DrawString(39, 150, 0.4f, TEXT_FARBE, "Aufgabenliste Leeren");
+	Gui::DrawString(39, 150, 0.4f, TEXT_FARBE, "Empty To-Do List");
 	Gui::DrawSprite(GFX::Sprites, sprites_remove_idx, 30 + 48, 175);
 
 	/* Zeichne den Stift. */
@@ -299,22 +299,22 @@ void Menu::UnterMenuLogik(uint32_t Down, uint32_t Held, touchPosition Touch) {
 	void Menu::AddierLogik(uint32_t Down, uint32_t Held, touchPosition Touch): Die Input Logik.
 */
 void Menu::AddierMenu(void) const {
-	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Aufgaben-Hinzufüger-Menü"); // Menü Titel.
+	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Add Task Menu"); // Menü Titel.
 	Gui::DrawSprite(GFX::Sprites, sprites_back_idx, 2, 1); // Zurück.
 
 	/* Aufgaben-Titel. */
-	Gui::DrawStringCentered(0, 35, 0.5f, TEXT_FARBE, "Aufgaben Titel");
+	Gui::DrawStringCentered(0, 35, 0.5f, TEXT_FARBE, "Task Title");
 	Gui::Draw_Rect(20, 55, 280, 30, BAR_FARBE);
 	Gui::DrawStringCentered(0, 61, 0.5f, TEXT_FARBE, this->Aufgabe.Titel, 260);
 
 	/* Aufgaben-Beschreibung. */
-	Gui::DrawStringCentered(0, 100, 0.5f, TEXT_FARBE, "Aufgaben Beschreibung");
+	Gui::DrawStringCentered(0, 100, 0.5f, TEXT_FARBE, "Task Description");
 	Gui::Draw_Rect(20, 120, 280, 60, BAR_FARBE);
 	Gui::DrawString(25, 125, 0.4f, TEXT_FARBE, this->Aufgabe.Beschreibung, 260, 40, nullptr, C2D_WordWrap);
 
 	/* Aufgabe Hinzufügen. */
 	Gui::Draw_Rect(60, 200, 200, 20, BAR_FARBE);
-	Gui::DrawStringCentered(0, 202, 0.5f, TEXT_FARBE, "Aufgabe Hinzufügen");
+	Gui::DrawStringCentered(0, 202, 0.5f, TEXT_FARBE, "Add Task");
 
 	/* Zeichne den Stift. */
 	Gui::DrawSprite(GFX::Sprites, sprites_stift_idx, this->AddierSchaltflaechen[this->UnterMenuIndex].x + this->AddierSchaltflaechen[this->UnterMenuIndex].w - 15, this->AddierSchaltflaechen[this->UnterMenuIndex].y + this->AddierSchaltflaechen[this->UnterMenuIndex].h - 15);
@@ -342,12 +342,12 @@ void Menu::AddierLogik(u32 Down, u32 Held, touchPosition Touch) {
 
 		/* Ändere den Titel der Aufgabe. */
 		} else if (Klick(this->AddierSchaltflaechen[0], Touch)) {
-			const std::string Text = GFX::Keyboard(60, "Gebe den Aufgaben-Titel ein.");
+			const std::string Text = GFX::Keyboard(60, "Enter the task title.");
 			if (Text != "") this->Aufgabe.Titel = Text;
 
 		/* Ändere die Beschreibung der Aufgabe. */
 		} else if (Klick(this->AddierSchaltflaechen[1], Touch)) {
-			const std::string Text = GFX::Keyboard(255, "Gebe die Aufgaben-Beschreibung ein.");
+			const std::string Text = GFX::Keyboard(255, "Enter the task description.");
 			if (Text != "") this->Aufgabe.Beschreibung = Text;
 
 		/* Füge Aufgabe zur TODO-Liste und gehe zurück zum Unter-Menü. */
@@ -377,13 +377,13 @@ void Menu::AddierLogik(u32 Down, u32 Held, touchPosition Touch) {
 		switch(this->UnterMenuIndex) {
 			case 0:
 				/* Ändere den Titel der Aufgabe. */
-				Text = GFX::Keyboard(60, "Gebe den Aufgaben-Titel ein.");
+				Text = GFX::Keyboard(60, "Enter the task title.");
 				if (Text != "") this->Aufgabe.Titel = Text;
 				break;
 
 			case 1:
 				/* Ändere die Beschreibung der Aufgabe. */
-				Text = GFX::Keyboard(255, "Gebe die Aufgaben-Beschreibung ein.");
+				Text = GFX::Keyboard(255, "Enter the task description.");
 				if (Text != "") this->Aufgabe.Beschreibung = Text;
 				break;
 
@@ -426,11 +426,11 @@ void Menu::AddierLogik(u32 Down, u32 Held, touchPosition Touch) {
 	void Menu::MitwirkendeLogik(uint32_t Down, uint32_t Held, touchPosition Touch): Die Input Logik.
 */
 void Menu::MitwirkendeMenu(void) const {
-	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Mitwirkende-Menü"); // Menü-Titel.
+	Gui::DrawStringCentered(0, 1, 0.55f, TEXT_FARBE, "Contributors"); // Menü-Titel.
 	Gui::DrawSprite(GFX::Sprites, sprites_back_idx, 2, 1); // Zurück.
 
 	/* Mitwirkenden Text. */
-	Gui::DrawStringCentered(0, 35, 0.6f, TEXT_FARBE, "Entwickelt von SuperSaiyajinStackZ.");
+	Gui::DrawStringCentered(0, 35, 0.6f, TEXT_FARBE, "Developed by SuperSaiyajinStackZ.");
 	Gui::DrawStringCentered(0, 60, 0.45f, TEXT_FARBE, "Universal-Team: Universal-Core.");
 
 	/* Bild von StackZ. */
