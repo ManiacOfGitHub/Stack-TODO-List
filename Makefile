@@ -34,9 +34,9 @@ include $(DEVKITARM)/3ds_rules
 TARGET			:=	Stack-TODO-List
 BUILD			:=	build
 UNIVCORE		:=	Universal-Core
-SOURCES			:=	$(UNIVCORE) source
+SOURCES			:=	$(UNIVCORE) source source/Menus
 DATA			:=	data
-INCLUDES		:=	$(UNIVCORE) include
+INCLUDES		:=	$(UNIVCORE) include include/Menus
 GRAPHICS		:=	assets/gfx
 APP_AUTHOR		:=	SuperSaiyajinStackZ
 APP_DESCRIPTION :=	A TODO-List Tool for the Nintendo 3DS.
